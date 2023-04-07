@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./src/**/*.{html,js}", "./dist/index.html"],
+  content: ["./src/**/*.{html,js}", "./dist/**/*.{html,js}"],
   darkMode: "class",
   theme: {
     fontSize: {
