@@ -1,15 +1,21 @@
 {
   "name": "trevor-portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Trevor Bonomi's resume portfolio",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run clean && npm run build:css && npm run build:files",
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "build:files": "cp ./src/index.html ./dist/ && cp ./src/site.webmanifest ./dist/ && cp -r ./src/assets/* ./dist/",
+    "clean": "rm -rf ./dist/*",
+    "preview": "cd dist && python3 -m http.server 8000",
+    "deploy": "npm run build"
   },
-  "author": "",
+  "author": "Trevor Bonomi",
   "license": "ISC",
   "devDependencies": {
-    "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.12"
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.0"
   }
 }
