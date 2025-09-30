@@ -11,7 +11,7 @@
     "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
     "build:files": "cp ./src/index.html ./dist/ && cp ./src/site.webmanifest ./dist/ && cp ./src/CNAME ./dist/ 2>/dev/null || true && cp -r ./src/assets/* ./dist/ && mkdir -p ./dist/vendor && cp ./node_modules/lucide/dist/umd/lucide.js ./dist/vendor/",
     "clean": "rm -rf ./dist/*",
-    "serve": "serve dist -p 3000 -o /index.html",
+    "serve": "serve dist -p 3000",
     "preview": "cd dist && python3 -m http.server 8000",
     "deploy": "npm run build"
   },
