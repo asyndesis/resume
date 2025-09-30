@@ -9,7 +9,7 @@
     "watch:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "watch:files": "nodemon --watch src --ext html,js,json --exec \"npm run build:files\"",
     "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-    "build:files": "cp ./src/index.html ./dist/ && cp ./src/site.webmanifest ./dist/ && cp -r ./src/assets/* ./dist/",
+    "build:files": "cp ./src/index.html ./dist/ && cp ./src/site.webmanifest ./dist/ && cp ./src/CNAME ./dist/ 2>/dev/null || true && cp -r ./src/assets/* ./dist/",
     "clean": "rm -rf ./dist/*",
     "serve": "live-server dist --port=3000 --open=/index.html --watch=dist",
     "preview": "cd dist && python3 -m http.server 8000",
