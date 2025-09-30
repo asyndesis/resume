@@ -1,606 +1,837 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trevor Bonomi - Full-Stack Developer</title>
-    <meta name="description" content="Resume portfolio for Trevor Bonomi, Full-Stack Developer with 12 years of experience" />
-    
+    <meta
+      name="description"
+      content="Resume portfolio for Trevor Bonomi, Full-Stack Developer with 12 years of experience"
+    />
+
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="favicons/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="favicons/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="favicons/favicon-96x96.png"
+    />
     <link rel="apple-touch-icon" href="favicons/apple-touch-icon.png" />
-    
+
     <!-- Web App Manifest -->
     <link rel="manifest" href="site.webmanifest" />
-    
+
     <!-- Theme Colors -->
     <meta name="theme-color" content="#000000" />
     <meta name="msapplication-TileColor" content="#000000" />
-    
+
     <!-- Styles -->
     <link href="output.css" rel="stylesheet" />
+
+    <!-- Print Styles -->
+    <style>
+      @media print {
+        body {
+          font-size: 10px;
+          line-height: 1.3;
+        }
+      }
+    </style>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   </head>
 
-  <body style="min-height: 100vh; background: #000">
-    <div
-      class="main"
-      style="
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        min-height: 100vh;
-        flex: 1;
-        background: radial-gradient(circle, #555, #000);
-      "
-    >
-      <div
-        class="print-col container max-w-screen-lg mx-auto"
-        style="text-align: right"
-      >
-        <span class="print-button" onclick="window.print()">🖨️ Print</span>
-      </div>
-      <div
-        class="container max-w-screen-lg mx-auto bg-white p-4 md:p-8 rounded-6"
-        style="position: relative"
-      >
-        <div class="grid grid-cols-main gap-x-8">
-          <!--Column-->
-          <div class="col-span-full md:col-auto print:col-auto">
-            <img
-              class="glasses"
-              src="glasses.gif"
-              style="position: absolute; margin-left: 45px; margin-top: 17px"
-              width="50"
-            />
-            <h1 class="mb-2 tracking-widest text-xl uppercase font-light">
-              Trevor Bonomi
-            </h1>
-            <div class="mb-4">
-              <!--About Item-->
+  <body class="min-h-screen bg-gray-50 dark:bg-gray-900 print:bg-white">
+    <!-- Main Content -->
+    <div class="min-h-screen p-3">
+      <div class="max-w-5xl mx-auto">
+        <div
+          class="bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-gray-800/20 overflow-hidden print:shadow-none print:rounded-none"
+        >
+          <!-- Header -->
+          <div
+            class="bg-gradient-to-r from-blue-400 to-purple-500 dark:from-blue-600 dark:to-purple-700 text-white p-6 print:bg-white print:text-black print:hidden relative"
+          >
+            <div
+              class="flex flex-col md:flex-row md:items-center md:justify-between"
+            >
+              <div class="flex items-center">
+                <div class="relative mr-4 print:hidden">
+                  <img
+                    src="trebs.jpg"
+                    class="w-24 h-24 rounded-full object-cover border-2 border-white"
+                    alt="Trevor Bonomi"
+                  />
+                  <img
+                    class="glasses absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 print:hidden z-10"
+                    style="margin-left: 4px"
+                    src="glasses.gif"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <h1
+                    class="text-3xl font-bold mb-1 text-white print:!text-gray-800"
+                  >
+                    Trevor Bonomi
+                  </h1>
+                  <p
+                    class="text-lg text-blue-100 print:!text-gray-600 dark:text-blue-200 print:hidden"
+                  >
+                    Senior Full-Stack Developer
+                  </p>
+                </div>
+              </div>
               <div
-                class="rounded-full overflow-clip aspect-square float-left w-32"
-                style="shape-outside: circle(50%); margin-right: 10px"
+                class="absolute top-2 right-2 flex flex-col gap-2 print:hidden z-10"
+                style="position: absolute !important"
               >
-                <img
-                  src="trebs.jpg"
-                  class="rounded-full object-contain md:object-scale-down"
-                  alt="Trevor Bonomi"
-                />
+                <button
+                  id="darkModeToggle"
+                  class="bg-white/20 hover:bg-white/30 text-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 border border-white/30 flex items-center justify-center"
+                  title="Toggle Dark Mode"
+                >
+                  <i id="moonIcon" data-lucide="moon" class="w-4 h-4"></i>
+                  <i id="sunIcon" data-lucide="sun" class="w-4 h-4 hidden"></i>
+                </button>
+                <button
+                  onclick="window.print()"
+                  class="bg-white/20 hover:bg-white/30 text-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 border border-white/30 flex items-center justify-center"
+                  title="Print Resume"
+                >
+                  <i data-lucide="printer" class="w-4 h-4"></i>
+                </button>
               </div>
-              <!--/About Item-->
-              <!--About Item-->
-              <ul class="text-sm whitespace-nowrap">
-                <li>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-red-600 inline-block align-middle"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span>Full-Stack Developer</span>
-                </li>
-                <li>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-orange-500 inline-block align-middle"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
-                    />
-                  </svg>
-                  <span>American in Spain</span>
-                </li>
-                <li>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-yellow-500 inline-block align-middle"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span>Fulltime @ Jobbatical</span>
-                </li>
-                <li>
-                  <a href="https://trevorbonomi.com">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4 text-green-600 inline-block align-middle"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span>trevorbonomi.com</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="http://trevordesign.com?secret=resume">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4 text-blue-600 inline-block align-middle"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span>trevordesign.com</span>
-                  </a>
-                </li>
-                <li>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-purple-600 inline-block align-middle"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                  <img
-                    class="inline-block align-middle"
-                    style="height: 16px"
-                    src="phone.png"
-                    alt="Phone number"
-                  />
-                </li>
-                <li>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 text-amber-900 inline-block align-middle"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <img
-                    class="inline-block align-middle"
-                    style="height: 16px"
-                    src="email.png"
-                    alt="Email address"
-                  />
-                </li>
-              </ul>
-              <!--/About Item-->
             </div>
-            <!--About Item-->
-            <div class="mb-2">
-              <p class="text-sm">
-                I've have 10+ years working as a software developer. I
-                <span title="love" style="color: #990000">&hearts;</span>
-                building user experiences that feel good to use. I'm comfortable
-                working across the stack and like to stay up to date on web
-                technologies. Originally from the United States, I am a
-                permanent resident of Madrid, Spain, where I'm in search of the
-                ideal mission-driven company where my inquisitive nature can
-                foster mutual growth.
-              </p>
-            </div>
-            <!--/About Item-->
-            <h1 class="mb-2 tracking-widest text-xl uppercase font-light">
-              Process
-            </h1>
-            <!--Process Item-->
-            <div class="mb-2">
-              <h2 class="grow font-medium text-base flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-1 fill-yellow-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-                <span>Technologies</span>
-              </h2>
-              <p class="text-sm">
-                JS, (Typescript, React, NextJS, Node, GraphQL, Express,
-                Socket.io), HTML, CSS (Emotion, Styled), Storybook, MongoDB,
-                Jest, Linux, CI/CD (Docker, Amazon AWS, Google Cloud Platform)
-                <span class="italic text-gray-300"
-                  >Past: SQL, Apache, jQuery, AngularJS, Open Source PHP
-                  Frameworks such as Laravel, Symphony, CodeIgniter, WordPress
-                  and Opencart</span
-                >
-              </p>
-            </div>
-            <!--/Process Item-->
-            <!--Process Item-->
-            <div class="mb-2">
-              <h2 class="grow font-medium text-base flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-1 fill-yellow-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-                <span>Applications</span>
-              </h2>
-              <p class="text-sm">
-                OSX, VS Code, Mongo3T, Warp, Brew, Git, Node, Figma, Adobe
-                Suite, Slack
-              </p>
-            </div>
-            <!--/Process Item-->
-            <!--Process Item-->
-            <div class="mb-2">
-              <h2 class="grow font-medium text-base flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-1 fill-yellow-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-                <span>Hobbies</span>
-              </h2>
-              <p class="text-sm">
-                Learning Spanish, Learning new Web-Tech, Guitar, Drawing,
-                Working on my Typescript RPG
-              </p>
-            </div>
-            <!--/Process Item-->
-            <h1 class="mb-2 tracking-widest text-xl uppercase font-light">
-              Education
-            </h1>
-            <!--Education Item-->
-            <div class="mb-2">
-              <div class="flex items-center">
-                <h2 class="grow font-medium text-base flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1 fill-slate-400"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"
-                    />
-                  </svg>
-                  <span>CCAC, Pittsburgh, PA USA</span>
-                </h2>
-                <p class="shrink-0 font-thin text-sm text-slate-500">
-                  2006 - 2009
-                </p>
-              </div>
-              <p class="text-sm">Software Development Associate Degree</p>
-            </div>
-            <!--/Education Item-->
-            <!--Education Item-->
-            <div class="mb-2">
-              <div class="flex items-center">
-                <h2 class="grow font-medium text-base flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1 fill-slate-400"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"
-                    />
-                  </svg>
-                  <span>Mount Lebanon SHS, USA</span>
-                </h2>
-                <p class="shrink-0 font-thin text-sm text-slate-500">
-                  2001 - 2005
-                </p>
-              </div>
-              <p class="text-sm">General Education Diploma</p>
-            </div>
-            <!--/Education Item-->
           </div>
-          <!--/Column-->
-          <!--Column-->
-          <div class="col-span-full md:col-auto print:col-auto">
-            <h1 class="mb-2 tracking-widest text-xl uppercase font-light">
-              Career
-            </h1>
-            <!--Career Item-->
-            <div class="mb-2">
-              <div class="flex items-center">
-                <h2 class="grow font-medium text-base flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1 text-slate-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span>Senior Fullstack Developer @ Jobbatical</span>
+
+          <!-- Main Content -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-2 print:grid-cols-[1fr_2fr] print:gap-1"
+          >
+            <!-- Left Column -->
+            <div
+              class="md:col-span-1 print:col-span-1 bg-white dark:bg-gray-800 p-5 print:p-3 md:border-r border-gray-200 dark:border-gray-600"
+            >
+              <!-- Contact -->
+              <div class="mb-6 mb-6 print:mb-0">
+                <h2
+                  class="text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
+                >
+                  Contact
                 </h2>
-                <p class="shrink-0 font-thin text-sm text-slate-500">
-                  2020 - Now
+                <div
+                  class="h-px bg-gray-200 dark:bg-gray-600 mb-4 print:mb-2 -mx-5"
+                  style="width: calc(100% + 2.5rem)"
+                ></div>
+                <div class="space-y-2">
+                  <!-- Print Name -->
+                  <div class="flex items-center hidden print:flex">
+                    <i
+                      data-lucide="user"
+                      class="w-4 h-4 text-pink-400 mr-3"
+                    ></i>
+                    <span
+                      class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800 font-bold"
+                      >Trevor Bonomi</span
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <i
+                      data-lucide="code"
+                      class="w-4 h-4 text-pink-400 mr-3"
+                    ></i>
+                    <span
+                      class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                      >Full-Stack Developer</span
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <i
+                      data-lucide="globe"
+                      class="w-4 h-4 text-orange-300 mr-3"
+                    ></i>
+                    <span
+                      class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                      >American in Spain</span
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <i
+                      data-lucide="briefcase"
+                      class="w-4 h-4 text-yellow-300 mr-3"
+                    ></i>
+                    <span
+                      class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                      >Fulltime @ Jobbatical</span
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <i
+                      data-lucide="link"
+                      class="w-4 h-4 text-green-300 mr-3"
+                    ></i>
+                    <a
+                      href="https://trevorbonomi.com"
+                      class="text-sm text-blue-600 hover:text-blue-800"
+                      >trevorbonomi.com</a
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <i
+                      data-lucide="palette"
+                      class="w-4 h-4 text-blue-300 mr-3"
+                    ></i>
+                    <a
+                      href="http://trevordesign.com?secret=resume"
+                      class="text-sm text-blue-600 hover:text-blue-800"
+                      >trevordesign.com</a
+                    >
+                  </div>
+                  <div class="flex items-center">
+                    <i
+                      data-lucide="phone"
+                      class="w-4 h-4 text-purple-300 mr-3"
+                    ></i>
+                    <img src="phone.png" alt="Phone" class="h-4 w-auto" />
+                  </div>
+                  <div class="flex items-center">
+                    <i
+                      data-lucide="mail"
+                      class="w-4 h-4 text-amber-300 mr-3"
+                    ></i>
+                    <img src="email.png" alt="Email" class="h-4 w-auto" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- About -->
+              <div class="mb-6 mb-6 print:mb-0">
+                <h2
+                  class="text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
+                >
+                  About
+                </h2>
+                <div
+                  class="h-px bg-gray-200 dark:bg-gray-600 mb-4 print:mb-2 -mx-5"
+                  style="width: calc(100% + 2.5rem)"
+                ></div>
+                <p
+                  class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800 print:mb-0 print:mt-0 leading-normal"
+                >
+                  I've have 10+ years working as a software developer. I
+                  <span class="text-pink-500 font-semibold">&hearts;</span>
+                  building user experiences that feel good to use. I'm
+                  comfortable working across the stack and like to stay up to
+                  date on web technologies. Originally from the United States, I
+                  am a permanent resident of Madrid, Spain, where I'm in search
+                  of the ideal mission-driven company where my inquisitive
+                  nature can foster mutual growth.
                 </p>
               </div>
-              <p class="text-sm">
-                A company that thinks beyond borders to help the world work
-                together
-              </p>
-              <ul class="list-disc ml-4 font-light text-sm">
-                <li>
-                  Tech: Next.js (React), Apollo GraphQL, MongoDB, Google Cloud
-                  Platform, Github CI/CD
-                </li>
-                <li>
-                  As a product lead, I work closely with other teams to drive
-                  feature development, ensuring exceptional user experiences,
-                  efficient database structures, and well-designed APIs.
-                </li>
-                <li>
-                  Beyond building features, I develop and manage a React
-                  component library and design system, oversee code reviews,
-                  implement testing procedures, and handle deployments using
-                  Google Kubernetes Engine (GKE).
-                </li>
-              </ul>
-            </div>
-            <!--/Career Item-->
-            <!--Career Item-->
-            <div class="mb-2">
-              <div class="flex items-center">
-                <h2 class="grow font-medium text-base flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1 text-slate-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span>Software Engineer @ Savvior</span>
+
+              <!-- Skills -->
+              <div class="mb-6 mb-6 print:mb-0">
+                <h2
+                  class="text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
+                >
+                  Skills
                 </h2>
-                <p class="shrink-0 font-thin text-sm text-slate-500">
-                  2016 - 2019
-                </p>
+                <div
+                  class="h-px bg-gray-200 dark:bg-gray-600 mb-4 print:mb-2 -mx-5"
+                  style="width: calc(100% + 2.5rem)"
+                ></div>
+                <div class="space-y-4 print:space-y-2">
+                  <div class="pl-6 print:pl-0">
+                    <h3
+                      class="text-sm font-semibold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-2 flex items-center"
+                    >
+                      <i
+                        data-lucide="settings"
+                        class="w-4 h-4 text-yellow-400 mr-2 -ml-6 print:ml-0"
+                      ></i>
+                      Technologies
+                    </h3>
+                    <p
+                      class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800 leading-relaxed"
+                    >
+                      JS, (Typescript, React, NextJS, Node, GraphQL, Express,
+                      Socket.io), HTML, CSS (Emotion, Styled), Storybook,
+                      MongoDB, Jest, Linux, CI/CD (Docker, Amazon AWS, Google
+                      Cloud Platform)
+                      <span
+                        class="block mt-2 text-gray-400 dark:text-gray-500 print:!text-gray-500 italic text-sm"
+                      >
+                        Past: SQL, Apache, jQuery, AngularJS, Open Source PHP
+                        Frameworks such as Laravel, Symphony, CodeIgniter,
+                        WordPress and Opencart
+                      </span>
+                    </p>
+                  </div>
+                  <div class="pl-6 print:pl-0">
+                    <h3
+                      class="text-sm font-semibold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-2 flex items-center"
+                    >
+                      <i
+                        data-lucide="monitor"
+                        class="w-4 h-4 text-yellow-400 mr-2 -ml-6 print:ml-0"
+                      ></i>
+                      Applications
+                    </h3>
+                    <p
+                      class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                    >
+                      OSX, VS Code, Mongo3T, Warp, Brew, Git, Node, Figma, Adobe
+                      Suite, Slack
+                    </p>
+                  </div>
+                  <div class="pl-6 print:pl-0">
+                    <h3
+                      class="text-sm font-semibold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-2 flex items-center"
+                    >
+                      <i
+                        data-lucide="heart"
+                        class="w-4 h-4 text-yellow-400 mr-2 -ml-6 print:ml-0"
+                      ></i>
+                      Hobbies
+                    </h3>
+                    <p
+                      class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                    >
+                      Learning Spanish, Learning new Web-Tech, Guitar, Drawing,
+                      Working on my Typescript RPG
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p class="text-sm">
-                A software house where we managed ad-hoc projects for customers
-                ranging from SME to corporate entities across the industrial,
-                logistics and nonprofit sectors
-              </p>
-              <ul class="list-disc ml-4 font-light text-sm">
-                <li>Tech: jQuery, AngularJS, Laravel (PHP), Wordpress</li>
-                <li>
-                  Built and maintained a variety of properties for clients like
-                  Children's Hospital of Pittsburgh, Vector Security, Alcoa,
-                  Covestro, Microbac Labs, PGT Trucking and Goodwill.
-                </li>
-              </ul>
-            </div>
-            <!--/Career Item-->
-            <!--Career Item-->
-            <div class="mb-2">
-              <div class="flex items-center">
-                <h2 class="grow font-medium text-base flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1 text-slate-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span>Software Engineer @ MedRespond LLC</span>
+
+              <!-- Education -->
+              <div class="mb-6 print:mb-0">
+                <h2
+                  class="text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
+                >
+                  Education
                 </h2>
-                <p class="shrink-0 font-thin text-sm text-slate-500">
-                  2014 - 2016
-                </p>
+                <div
+                  class="h-px bg-gray-200 dark:bg-gray-600 mb-4 print:mb-2 -mx-5"
+                  style="width: calc(100% + 2.5rem)"
+                ></div>
+                <div class="space-y-4">
+                  <div class="pl-6 print:pl-0">
+                    <div
+                      class="flex justify-between items-start mb-1 print:block"
+                    >
+                      <h3
+                        class="text-sm font-semibold text-gray-800 dark:text-gray-200 print:!text-gray-800 flex items-center"
+                      >
+                        <i
+                          data-lucide="graduation-cap"
+                          class="w-4 h-4 text-purple-300 mr-2 -ml-6 print:ml-0"
+                        ></i>
+                        CCAC, Pittsburgh, PA USA
+                      </h3>
+                    </div>
+                    <p
+                      class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800 print:inline"
+                    >
+                      <span
+                        class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 print:inline print:mr-2"
+                        >2006 - 2009</span
+                      >
+                      Software Development Associate Degree
+                    </p>
+                  </div>
+                  <div class="pl-6 print:pl-0">
+                    <div
+                      class="flex justify-between items-start mb-1 print:block"
+                    >
+                      <h3
+                        class="text-sm font-semibold text-gray-800 dark:text-gray-200 print:!text-gray-800 flex items-center"
+                      >
+                        <i
+                          data-lucide="graduation-cap"
+                          class="w-4 h-4 text-purple-300 mr-2 -ml-6 print:ml-0"
+                        ></i>
+                        Mount Lebanon SHS, USA
+                      </h3>
+                    </div>
+                    <p
+                      class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800 print:inline"
+                    >
+                      <span
+                        class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 print:inline print:mr-2"
+                        >2001 - 2005</span
+                      >
+                      General Education Diploma
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p class="text-sm">
-                A product that featured interactive video training courses for
-                large pharmaceutical companies, utility companies and the US
-                Department of Defense
-              </p>
-              <ul class="list-disc ml-4 font-light text-sm">
-                <li>Tech: Laravel (PHP) and Vanilla JS, jQuery, AngularJS</li>
-                <li>
-                  Built new features, improved aethetics and refactored
-                  codebases to share common modules.
-                </li>
-                <li>
-                  Upgraded applications to be responsive for mobile devices.
-                </li>
-              </ul>
             </div>
-            <!--/Career Item-->
-            <!--Career Item-->
-            <div class="mb-2">
-              <div class="flex items-center">
-                <h2 class="grow font-medium text-base flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1 text-slate-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+
+            <!-- Right Column -->
+            <div
+              class="md:col-span-2 print:col-span-1 bg-white dark:bg-gray-800 p-5 print:p-3 print:pt-0"
+            >
+              <h2
+                class="text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
+              >
+                Career Experience
+              </h2>
+              <div
+                class="h-px bg-gray-200 dark:bg-gray-600 mb-4 -mx-5"
+                style="width: calc(100% + 2.5rem)"
+              ></div>
+
+              <!-- Job 1 -->
+              <div class="pb-6 print:pb-1 print:mt-0">
+                <div
+                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
+                >
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
+                    >
+                      <i
+                        data-lucide="briefcase"
+                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
+                      ></i>
+                      Senior Fullstack Developer
+                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                        >@ Jobbatical</span
+                      >
+                    </h3>
+                  </div>
+                  <span
+                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
+                    >2020 - Now</span
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span>Designer / Developer @ Freelance</span>
-                </h2>
-                <p class="shrink-0 font-thin text-sm text-slate-500">
-                  2014 - 2015
+                </div>
+                <p
+                  class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
+                >
+                  A company that thinks beyond borders to help the world work
+                  together
                 </p>
+                <ul
+                  class="space-y-1 print:space-y-0.5 text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                >
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      ><strong>Tech:</strong> Next.js (React), Apollo GraphQL,
+                      MongoDB, Google Cloud Platform, Github CI/CD</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >As a product lead, I work closely with other teams to
+                      drive feature development, ensuring exceptional user
+                      experiences, efficient database structures, and
+                      well-designed APIs.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Beyond building features, I develop and manage a React
+                      component library and design system, oversee code reviews,
+                      implement testing procedures, and handle deployments using
+                      Google Kubernetes Engine (GKE).</span
+                    >
+                  </li>
+                </ul>
+                <div
+                  class="h-px bg-gray-200 dark:bg-gray-600 mt-6 print:mt-3 -mx-5"
+                  style="width: calc(100% + 2.5rem)"
+                ></div>
               </div>
-              <ul class="list-disc ml-4 font-light text-sm">
-                <li>
-                  Tech: Actionscript (Flash), Wordpress (PHP), Javascript,
-                  Google Analytics
-                </li>
-                <li>
-                  Built, designed, and managed SEO for Wordpress sites for a
-                  dozen or so companies.
-                </li>
-                <li>
-                  Designed banner ads for Stouffers, Nestle and Skinny Cow ala
-                  Smith Brothers Ad Agency
-                </li>
-              </ul>
-            </div>
-            <!--/Career Item-->
-            <!--Career Item-->
-            <div class="mb-2">
-              <div class="flex items-center">
-                <h2 class="grow font-medium text-base flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1 text-slate-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+
+              <!-- Job 2 -->
+              <div class="pb-6 print:pb-1">
+                <div
+                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
+                >
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
+                    >
+                      <i
+                        data-lucide="briefcase"
+                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
+                      ></i>
+                      Software Engineer
+                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                        >@ Savvior</span
+                      >
+                    </h3>
+                  </div>
+                  <span
+                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
+                    >2016 - 2019</span
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span>Frontend Developer @ Interworx LLC</span>
-                </h2>
-                <p class="shrink-0 font-thin text-sm text-slate-500">
-                  2012 - 2014
+                </div>
+                <p
+                  class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
+                >
+                  A software house where we managed ad-hoc projects for
+                  customers ranging from SME to corporate entities across the
+                  industrial, logistics and nonprofit sectors
                 </p>
+                <ul
+                  class="space-y-1 print:space-y-0.5 text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                >
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      ><strong>Tech:</strong> jQuery, AngularJS, Laravel (PHP),
+                      Wordpress</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Built and maintained a variety of properties for clients
+                      like Children's Hospital of Pittsburgh, Vector Security,
+                      Alcoa, Covestro, Microbac Labs, PGT Trucking and
+                      Goodwill.</span
+                    >
+                  </li>
+                </ul>
+                <div
+                  class="h-px bg-gray-200 dark:bg-gray-600 mt-6 print:mt-3 -mx-5"
+                  style="width: calc(100% + 2.5rem)"
+                ></div>
               </div>
-              <p class="text-sm">
-                A contol panel similar to CPanel for managing linux shared
-                hosting servers.
-              </p>
-              <ul class="list-disc ml-4 font-light text-sm">
-                <li>
-                  Tech: Wordpress (PHP), YUI (Javascript), Redhat Linux,
-                  Photoshop
-                </li>
-                <li>
-                  Lead the design of a new styleguide and re-themed the app /
-                  website by mobile responsiveness. Supported end users by
-                  troubleshooting their linux servers.
-                </li>
-              </ul>
-            </div>
-            <!--/Career Item-->
-            <!--Career Item-->
-            <div class="mb-2">
-              <div class="flex items-center">
-                <h2 class="grow font-medium text-base flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 mr-1 text-slate-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+
+              <!-- Job 3 -->
+              <div class="pb-6 print:pb-1">
+                <div
+                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
+                >
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
+                    >
+                      <i
+                        data-lucide="briefcase"
+                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
+                      ></i>
+                      Software Engineer
+                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                        >@ MedRespond LLC</span
+                      >
+                    </h3>
+                  </div>
+                  <span
+                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
+                    >2014 - 2016</span
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                  <span>Frontend Developer @ Gatesman + Dave</span>
-                </h2>
-                <p class="shrink-0 font-thin text-sm text-slate-500">
-                  2014 - 2015
+                </div>
+                <p
+                  class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
+                >
+                  A product that featured interactive video training courses for
+                  large pharmaceutical companies, utility companies and the US
+                  Department of Defense
                 </p>
+                <ul
+                  class="space-y-1 print:space-y-0.5 text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                >
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      ><strong>Tech:</strong> Laravel (PHP) and Vanilla JS,
+                      jQuery, AngularJS</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Built new features, improved aesthetics and refactored
+                      codebases to share common modules.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Upgraded applications to be responsive for mobile
+                      devices.</span
+                    >
+                  </li>
+                </ul>
+                <div
+                  class="h-px bg-gray-200 dark:bg-gray-600 mt-6 print:mt-3 -mx-5"
+                  style="width: calc(100% + 2.5rem)"
+                ></div>
               </div>
-              <p class="text-sm">
-                My first real job in a medium sized ad agency.
-              </p>
-              <ul class="list-disc ml-4 font-light text-sm">
-                <li>
-                  Did frontend work for tier 1 clients in the agency portfolio
-                </li>
-                <li>
-                  Supported marketing efforts by designing banner ads, mailers,
-                  and small web and social media applications
-                </li>
-                <li>Coded and deployed sites with Joomla and Wordpress</li>
-              </ul>
+
+              <!-- Job 4 -->
+              <div class="pb-6 print:pb-1">
+                <div
+                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
+                >
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
+                    >
+                      <i
+                        data-lucide="palette"
+                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
+                      ></i>
+                      Designer / Developer
+                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                        >@ Freelance</span
+                      >
+                    </h3>
+                  </div>
+                  <span
+                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
+                    >2014 - 2015</span
+                  >
+                </div>
+                <ul
+                  class="space-y-1 print:space-y-0.5 text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                >
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      ><strong>Tech:</strong> Actionscript (Flash), Wordpress
+                      (PHP), Javascript, Google Analytics</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Built, designed, and managed SEO for Wordpress sites for
+                      a dozen or so companies.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Designed banner ads for Stouffers, Nestle and Skinny Cow
+                      ala Smith Brothers Ad Agency</span
+                    >
+                  </li>
+                </ul>
+                <div
+                  class="h-px bg-gray-200 dark:bg-gray-600 mt-6 print:mt-3 -mx-5"
+                  style="width: calc(100% + 2.5rem)"
+                ></div>
+              </div>
+
+              <!-- Job 5 -->
+              <div class="pb-6 print:pb-1">
+                <div
+                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
+                >
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
+                    >
+                      <i
+                        data-lucide="laptop"
+                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
+                      ></i>
+                      Frontend Developer
+                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                        >@ Interworx LLC</span
+                      >
+                    </h3>
+                  </div>
+                  <span
+                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
+                    >2012 - 2014</span
+                  >
+                </div>
+                <p
+                  class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
+                >
+                  A control panel similar to CPanel for managing linux shared
+                  hosting servers.
+                </p>
+                <ul
+                  class="space-y-1 print:space-y-0.5 text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                >
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      ><strong>Tech:</strong> Wordpress (PHP), YUI (Javascript),
+                      Redhat Linux, Photoshop</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Lead the design of a new styleguide and re-themed the app
+                      / website by mobile responsiveness. Supported end users by
+                      troubleshooting their linux servers.</span
+                    >
+                  </li>
+                </ul>
+                <div
+                  class="h-px bg-gray-200 dark:bg-gray-600 mt-6 print:mt-3 -mx-5"
+                  style="width: calc(100% + 2.5rem)"
+                ></div>
+              </div>
+
+              <!-- Job 6 -->
+              <div class="mb-8 print:mb-1">
+                <div
+                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
+                >
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
+                    >
+                      <i
+                        data-lucide="laptop"
+                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
+                      ></i>
+                      Frontend Developer
+                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                        >@ Gatesman + Dave</span
+                      >
+                    </h3>
+                  </div>
+                  <span
+                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
+                    >2014 - 2015</span
+                  >
+                </div>
+                <p
+                  class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
+                >
+                  My first real job in a medium sized ad agency.
+                </p>
+                <ul
+                  class="space-y-1 print:space-y-0.5 text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
+                >
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Did frontend work for tier 1 clients in the agency
+                      portfolio</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Supported marketing efforts by designing banner ads,
+                      mailers, and small web and social media applications</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <i
+                      data-lucide="chevron-right"
+                      class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
+                    ></i>
+                    <span
+                      >Coded and deployed sites with Joomla and Wordpress</span
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
-            <!--/Career Item-->
           </div>
-          <!--/Column-->
         </div>
       </div>
     </div>
+    <script>
+      lucide.createIcons();
+
+      // Dark mode functionality
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const moonIcon = document.getElementById("moonIcon");
+      const sunIcon = document.getElementById("sunIcon");
+      const html = document.documentElement;
+
+      // Check for saved theme preference or use system default
+      const savedTheme = localStorage.getItem("theme");
+      let currentTheme;
+
+      if (savedTheme) {
+        currentTheme = savedTheme;
+      } else {
+        // Use system preference
+        currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      }
+
+      html.classList.toggle("dark", currentTheme === "dark");
+      updateDarkModeUI();
+
+      darkModeToggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const isDark = html.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateDarkModeUI();
+      });
+
+      function updateDarkModeUI() {
+        const isDark = html.classList.contains("dark");
+
+        if (isDark) {
+          // Dark mode: show sun icon, hide moon icon
+          moonIcon.classList.add("hidden");
+          sunIcon.classList.remove("hidden");
+        } else {
+          // Light mode: show moon icon, hide sun icon
+          moonIcon.classList.remove("hidden");
+          sunIcon.classList.add("hidden");
+        }
+      }
+    </script>
   </body>
 </html>
