@@ -30,6 +30,14 @@
     <!-- Styles -->
     <link href="output.css" rel="stylesheet" />
 
+    <!-- JetBrains Mono Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Print Styles -->
     <style>
       @media print {
@@ -38,13 +46,38 @@
           line-height: 1.3;
         }
       }
+
+      /* JetBrains Mono for titles */
+      h1,
+      h2,
+      h3 {
+        font-family: "JetBrains Mono", "Courier New", monospace;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+
+      /* Special styling for main title */
+      h1 {
+        font-weight: 700;
+        letter-spacing: -0.05em;
+      }
     </style>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="vendor/lucide.js"></script>
+
+    <!-- Tippy.js with Popper.js dependency -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
   </head>
 
   <body class="min-h-screen bg-gray-50 dark:bg-gray-900 print:bg-white">
+    <!-- Dark Overlay -->
+    <div
+      id="darkOverlay"
+      class="fixed inset-0 bg-black/80 z-40 print:hidden transition-opacity duration-200 opacity-0 pointer-events-none"
+    ></div>
+
     <!-- Main Content -->
     <div class="min-h-screen p-3">
       <div class="max-w-5xl mx-auto">
@@ -59,14 +92,15 @@
               class="flex flex-col md:flex-row md:items-center md:justify-between"
             >
               <div class="flex items-center">
-                <div class="relative mr-4 print:hidden">
+                <div class="relative mr-4 print:hidden z-50">
                   <img
                     src="trebs.jpg"
                     class="w-24 h-24 rounded-full object-cover border-2 border-white"
                     alt="Trevor Bonomi"
                   />
                   <img
-                    class="glasses absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 print:hidden z-10"
+                    id="glassesGif"
+                    class="glasses absolute -top-4 left-1/2 transform -translate-x-1/2 w-10 print:hidden z-10 hidden transition-opacity duration-200"
                     style="margin-left: 4px"
                     src="glasses.gif"
                     alt=""
@@ -92,15 +126,22 @@
                 <button
                   id="darkModeToggle"
                   class="bg-white/20 hover:bg-white/30 text-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 border border-white/30 flex items-center justify-center"
-                  title="Toggle Dark Mode"
+                  data-tippy-content="Toggle Dark Mode"
                 >
                   <i id="moonIcon" data-lucide="moon" class="w-4 h-4"></i>
                   <i id="sunIcon" data-lucide="sun" class="w-4 h-4 hidden"></i>
                 </button>
                 <button
+                  id="glassesToggle"
+                  class="bg-white/20 hover:bg-white/30 text-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 border border-white/30 flex items-center justify-center"
+                  data-tippy-content="Rizz"
+                >
+                  <i data-lucide="glasses" class="w-4 h-4"></i>
+                </button>
+                <button
                   onclick="window.print()"
                   class="bg-white/20 hover:bg-white/30 text-white p-2 rounded-full shadow-md hover:shadow-lg transition-all duration-200 border border-white/30 flex items-center justify-center"
-                  title="Print Resume"
+                  data-tippy-content="Print Resume"
                 >
                   <i data-lucide="printer" class="w-4 h-4"></i>
                 </button>
@@ -196,14 +237,22 @@
                       data-lucide="phone"
                       class="w-4 h-4 text-purple-300 mr-3"
                     ></i>
-                    <img src="phone.png" alt="Phone" class="h-4 w-auto" />
+                    <img
+                      src="phone.png"
+                      alt="Phone"
+                      class="h-4 w-auto rounded-md"
+                    />
                   </div>
                   <div class="flex items-center">
                     <i
                       data-lucide="mail"
                       class="w-4 h-4 text-amber-300 mr-3"
                     ></i>
-                    <img src="email.png" alt="Email" class="h-4 w-auto" />
+                    <img
+                      src="email.png"
+                      alt="Email"
+                      class="h-4 w-auto rounded-md"
+                    />
                   </div>
                 </div>
               </div>
@@ -224,12 +273,13 @@
                 >
                   I've have 10+ years working as a software developer. I
                   <span class="text-pink-500 font-semibold">&hearts;</span>
-                  building user experiences that feel good to use. I'm
-                  comfortable working across the stack and like to stay up to
-                  date on web technologies. Originally from the United States, I
-                  am a permanent resident of Madrid, Spain, where I'm in search
-                  of the ideal mission-driven company where my inquisitive
-                  nature can foster mutual growth.
+                  both building user experiences that feel good to use, as well
+                  I'm a firm believer in clean code and good DX. I'm work across
+                  the stack and stay up to date on software trends. Originally
+                  from the United States, I am a permanent resident of
+                  Barcelona, Spain, where I'm in search of the ideal
+                  mission-driven company where my inquisitive nature can foster
+                  mutual growth.
                 </p>
               </div>
 
@@ -259,9 +309,9 @@
                       class="text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800 leading-relaxed"
                     >
                       JS, (Typescript, React, NextJS, Node, GraphQL, Express,
-                      Socket.io), HTML, CSS (Emotion, Styled), Storybook,
-                      MongoDB, Jest, Linux, CI/CD (Docker, Amazon AWS, Google
-                      Cloud Platform)
+                      Nginx, Python (FastAPI), Socket.io), HTML, CSS (Styled,
+                      Tailwind), Storybook, MongoDB, Jest, Linux, Kubernetes,
+                      Docker, Google Cloud Platform (GCP)
                       <span
                         class="block mt-2 text-gray-400 dark:text-gray-500 print:!text-gray-500 italic text-sm"
                       >
@@ -425,8 +475,8 @@
                       class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
                     ></i>
                     <span
-                      ><strong>Tech:</strong> Next.js (React), Apollo GraphQL,
-                      MongoDB, Google Cloud Platform, Github CI/CD</span
+                      ><strong>Tech:</strong> Next.js (React), GraphQL, MongoDB,
+                      Python (FastAPI), Kubernetes, Google Cloud Platform</span
                     >
                   </li>
                   <li class="flex items-start">
@@ -435,10 +485,10 @@
                       class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
                     ></i>
                     <span
-                      >As a product lead, I work closely with other teams to
-                      drive feature development, ensuring exceptional user
-                      experiences, efficient database structures, and
-                      well-designed APIs.</span
+                      >As a product lead, I work closely with the product team
+                      to build and plan features while guiding team members to
+                      achieve clean UX, scalable architecture and
+                      well-structured DB and API schemas.</span
                     >
                   </li>
                   <li class="flex items-start">
@@ -447,10 +497,9 @@
                       class="w-3 h-3 text-gray-400 mt-0.5 mr-2 flex-shrink-0"
                     ></i>
                     <span
-                      >Beyond building features, I develop and manage a React
-                      component library and design system, oversee code reviews,
-                      implement testing procedures, and handle deployments using
-                      Google Kubernetes Engine (GKE).</span
+                      >Oversee code reviews, implement testing procedures, and
+                      handle deployments using Google Kubernetes Engine
+                      (GKE).</span
                     >
                   </li>
                 </ul>
@@ -788,50 +837,102 @@
       </div>
     </div>
     <script>
-      lucide.createIcons();
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Lucide icons
+        lucide.createIcons();
 
-      // Dark mode functionality
-      const darkModeToggle = document.getElementById("darkModeToggle");
-      const moonIcon = document.getElementById("moonIcon");
-      const sunIcon = document.getElementById("sunIcon");
-      const html = document.documentElement;
+        // Initialize Tippy.js tooltips
+        tippy("[data-tippy-content]", {
+          theme: "dark",
+          placement: "left-start",
+          arrow: true,
+          animation: "fade",
+          duration: [200, 150],
+        });
 
-      // Check for saved theme preference or use system default
-      const savedTheme = localStorage.getItem("theme");
-      let currentTheme;
+        // Dark mode functionality
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const moonIcon = document.getElementById("moonIcon");
+        const sunIcon = document.getElementById("sunIcon");
+        const html = document.documentElement;
 
-      if (savedTheme) {
-        currentTheme = savedTheme;
-      } else {
-        // Use system preference
-        currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-      }
+        // Glasses toggle functionality
+        const glassesToggle = document.getElementById("glassesToggle");
+        const glassesGif = document.getElementById("glassesGif");
+        const darkOverlay = document.getElementById("darkOverlay");
 
-      html.classList.toggle("dark", currentTheme === "dark");
-      updateDarkModeUI();
+        // Check for saved theme preference or use system default
+        const savedTheme = localStorage.getItem("theme");
+        let currentTheme;
 
-      darkModeToggle.addEventListener("click", () => {
-        html.classList.toggle("dark");
-        const isDark = html.classList.contains("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-        updateDarkModeUI();
-      });
-
-      function updateDarkModeUI() {
-        const isDark = html.classList.contains("dark");
-
-        if (isDark) {
-          // Dark mode: show sun icon, hide moon icon
-          moonIcon.classList.add("hidden");
-          sunIcon.classList.remove("hidden");
+        if (savedTheme) {
+          currentTheme = savedTheme;
         } else {
-          // Light mode: show moon icon, hide sun icon
-          moonIcon.classList.remove("hidden");
-          sunIcon.classList.add("hidden");
+          // Use system preference
+          currentTheme = window.matchMedia("(prefers-color-scheme: dark)")
+            .matches
+            ? "dark"
+            : "light";
         }
-      }
+
+        html.classList.toggle("dark", currentTheme === "dark");
+        updateDarkModeUI();
+
+        darkModeToggle.addEventListener("click", () => {
+          html.classList.toggle("dark");
+          const isDark = html.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+          updateDarkModeUI();
+        });
+
+        // Glasses toggle event listener
+        glassesToggle.addEventListener("click", () => {
+          // Show the dark overlay with dramatic fade-in
+          darkOverlay.style.opacity = "1";
+          darkOverlay.style.pointerEvents = "auto";
+
+          // Show the glasses on the existing profile picture
+          glassesGif.classList.remove("hidden");
+
+          // Properly reset the glasses GIF to play from the beginning
+          // This forces the browser to reload the image and restart the animation
+          const currentSrc = glassesGif.src;
+          glassesGif.src = "";
+          // Force a reflow to ensure the src is cleared
+          glassesGif.offsetHeight;
+          glassesGif.src = currentSrc + "?t=" + Date.now();
+
+          // Auto-hide everything after 3 seconds with dramatic fade-out
+          setTimeout(() => {
+            // Fade out the dark overlay
+            darkOverlay.style.opacity = "0";
+            darkOverlay.style.pointerEvents = "none";
+            // Fade out the glasses
+            glassesGif.style.opacity = "0";
+
+            // Hide elements after fade transition completes
+            setTimeout(() => {
+              glassesGif.classList.add("hidden");
+              // Reset opacity for next time
+              glassesGif.style.opacity = "";
+            }, 200); // Match the transition duration
+          }, 3000);
+        });
+
+        function updateDarkModeUI() {
+          const isDark = html.classList.contains("dark");
+
+          if (isDark) {
+            // Dark mode: show sun icon, hide moon icon
+            moonIcon.classList.add("hidden");
+            sunIcon.classList.remove("hidden");
+          } else {
+            // Light mode: show moon icon, hide sun icon
+            moonIcon.classList.remove("hidden");
+            sunIcon.classList.add("hidden");
+          }
+        }
+      }); // End of DOMContentLoaded
     </script>
   </body>
 </html>
