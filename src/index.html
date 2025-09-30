@@ -30,14 +30,6 @@
     <!-- Styles -->
     <link href="output.css" rel="stylesheet" />
 
-    <!-- JetBrains Mono Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      rel="stylesheet"
-    />
-
     <!-- Print Styles -->
     <style>
       @media print {
@@ -47,19 +39,16 @@
         }
       }
 
-      /* JetBrains Mono for titles */
-      h1,
-      h2,
-      h3 {
-        font-family: "JetBrains Mono", "Courier New", monospace;
-        font-weight: 600;
-        letter-spacing: -0.025em;
-      }
-
-      /* Special styling for main title */
-      h1 {
-        font-weight: 700;
-        letter-spacing: -0.05em;
+      /* Custom breakpoint for very small screens */
+      @media (max-width: 475px) {
+        .job-title-container {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+        .job-company {
+          margin-left: 0 !important;
+          margin-top: 0.25rem;
+        }
       }
     </style>
 
@@ -108,7 +97,7 @@
                 </div>
                 <div>
                   <h1
-                    class="text-3xl font-bold mb-1 text-white print:!text-gray-800"
+                    class="text-2xl sm:text-3xl font-bold mb-1 text-white print:!text-gray-800"
                   >
                     Trevor Bonomi
                   </h1>
@@ -160,7 +149,7 @@
               <!-- Contact -->
               <div class="mb-6 mb-6 print:mb-0">
                 <h2
-                  class="text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
+                  class="text-base sm:text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
                 >
                   Contact
                 </h2>
@@ -260,7 +249,7 @@
               <!-- About -->
               <div class="mb-6 mb-6 print:mb-0">
                 <h2
-                  class="text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
+                  class="text-base sm:text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
                 >
                   About
                 </h2>
@@ -286,7 +275,7 @@
               <!-- Skills -->
               <div class="mb-6 mb-6 print:mb-0">
                 <h2
-                  class="text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
+                  class="text-base sm:text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
                 >
                   Skills
                 </h2>
@@ -361,7 +350,7 @@
               <!-- Education -->
               <div class="mb-6 print:mb-0">
                 <h2
-                  class="text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
+                  class="text-base sm:text-lg font-bold text-gray-800 dark:text-gray-200 print:!text-gray-800 mb-4 uppercase tracking-wide print:hidden"
                 >
                   Education
                 </h2>
@@ -438,27 +427,30 @@
 
               <!-- Job 1 -->
               <div class="pb-6 print:pb-1 print:mt-0">
-                <div
-                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
-                >
-                  <div>
-                    <h3
-                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
-                    >
-                      <i
-                        data-lucide="briefcase"
-                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
-                      ></i>
-                      Senior Fullstack Developer
-                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                <div class="mb-2">
+                  <div
+                    class="flex flex-col sm:flex-row sm:justify-between sm:items-start"
+                  >
+                    <div class="job-title-container flex flex-row items-center">
+                      <h3
+                        class="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 print:inline print:text-base"
+                      >
+                        <i
+                          data-lucide="briefcase"
+                          class="w-4 h-4 text-blue-400 mr-1 print:hidden inline-block align-middle"
+                        ></i>
+                        Senior Fullstack Developer
+                      </h3>
+                      <span
+                        class="job-company text-gray-400 dark:text-gray-500 font-semibold ml-2 print:ml-1 text-base sm:text-lg print:!text-base"
                         >@ Jobbatical</span
                       >
-                    </h3>
+                    </div>
+                    <span
+                      class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:inline print:ml-2"
+                      >2020 - Now</span
+                    >
                   </div>
-                  <span
-                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
-                    >2020 - Now</span
-                  >
                 </div>
                 <p
                   class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
@@ -511,27 +503,30 @@
 
               <!-- Job 2 -->
               <div class="pb-6 print:pb-1">
-                <div
-                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
-                >
-                  <div>
-                    <h3
-                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
-                    >
-                      <i
-                        data-lucide="briefcase"
-                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
-                      ></i>
-                      Software Engineer
-                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                <div class="mb-2">
+                  <div
+                    class="flex flex-col sm:flex-row sm:justify-between sm:items-start"
+                  >
+                    <div class="job-title-container flex flex-row items-center">
+                      <h3
+                        class="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 print:inline print:text-base"
+                      >
+                        <i
+                          data-lucide="briefcase"
+                          class="w-4 h-4 text-blue-400 mr-1 print:hidden inline-block align-middle"
+                        ></i>
+                        Software Engineer
+                      </h3>
+                      <span
+                        class="job-company text-gray-400 dark:text-gray-500 font-semibold ml-2 print:ml-1 text-base sm:text-lg print:!text-base"
                         >@ Savvior</span
                       >
-                    </h3>
+                    </div>
+                    <span
+                      class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:inline print:ml-2"
+                      >2016 - 2019</span
+                    >
                   </div>
-                  <span
-                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
-                    >2016 - 2019</span
-                  >
                 </div>
                 <p
                   class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
@@ -574,27 +569,30 @@
 
               <!-- Job 3 -->
               <div class="pb-6 print:pb-1">
-                <div
-                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
-                >
-                  <div>
-                    <h3
-                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
-                    >
-                      <i
-                        data-lucide="briefcase"
-                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
-                      ></i>
-                      Software Engineer
-                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                <div class="mb-2">
+                  <div
+                    class="flex flex-col sm:flex-row sm:justify-between sm:items-start"
+                  >
+                    <div class="job-title-container flex flex-row items-center">
+                      <h3
+                        class="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 print:inline print:text-base"
+                      >
+                        <i
+                          data-lucide="briefcase"
+                          class="w-4 h-4 text-blue-400 mr-1 print:hidden inline-block align-middle"
+                        ></i>
+                        Software Engineer
+                      </h3>
+                      <span
+                        class="job-company text-gray-400 dark:text-gray-500 font-semibold ml-2 print:ml-1 text-base sm:text-lg print:!text-base"
                         >@ MedRespond LLC</span
                       >
-                    </h3>
+                    </div>
+                    <span
+                      class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:inline print:ml-2"
+                      >2014 - 2016</span
+                    >
                   </div>
-                  <span
-                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
-                    >2014 - 2016</span
-                  >
                 </div>
                 <p
                   class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
@@ -645,27 +643,30 @@
 
               <!-- Job 4 -->
               <div class="pb-6 print:pb-1">
-                <div
-                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
-                >
-                  <div>
-                    <h3
-                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
-                    >
-                      <i
-                        data-lucide="palette"
-                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
-                      ></i>
-                      Designer / Developer
-                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                <div class="mb-2">
+                  <div
+                    class="flex flex-col sm:flex-row sm:justify-between sm:items-start"
+                  >
+                    <div class="job-title-container flex flex-row items-center">
+                      <h3
+                        class="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 print:inline print:text-base"
+                      >
+                        <i
+                          data-lucide="palette"
+                          class="w-4 h-4 text-blue-400 mr-1 print:hidden inline-block align-middle"
+                        ></i>
+                        Designer / Developer
+                      </h3>
+                      <span
+                        class="job-company text-gray-400 dark:text-gray-500 font-semibold ml-2 print:ml-1 text-base sm:text-lg print:!text-base"
                         >@ Freelance</span
                       >
-                    </h3>
+                    </div>
+                    <span
+                      class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:inline print:ml-2"
+                      >2014 - 2015</span
+                    >
                   </div>
-                  <span
-                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
-                    >2014 - 2015</span
-                  >
                 </div>
                 <ul
                   class="space-y-1 print:space-y-0.5 text-sm text-gray-700 dark:text-gray-300 print:!text-gray-800"
@@ -709,27 +710,30 @@
 
               <!-- Job 5 -->
               <div class="pb-6 print:pb-1">
-                <div
-                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
-                >
-                  <div>
-                    <h3
-                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
-                    >
-                      <i
-                        data-lucide="laptop"
-                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
-                      ></i>
-                      Frontend Developer
-                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                <div class="mb-2">
+                  <div
+                    class="flex flex-col sm:flex-row sm:justify-between sm:items-start"
+                  >
+                    <div class="job-title-container flex flex-row items-center">
+                      <h3
+                        class="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 print:inline print:text-base"
+                      >
+                        <i
+                          data-lucide="laptop"
+                          class="w-4 h-4 text-blue-400 mr-1 print:hidden inline-block align-middle"
+                        ></i>
+                        Frontend Developer
+                      </h3>
+                      <span
+                        class="job-company text-gray-400 dark:text-gray-500 font-semibold ml-2 print:ml-1 text-base sm:text-lg print:!text-base"
                         >@ Interworx LLC</span
                       >
-                    </h3>
+                    </div>
+                    <span
+                      class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:inline print:ml-2"
+                      >2012 - 2014</span
+                    >
                   </div>
-                  <span
-                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
-                    >2012 - 2014</span
-                  >
                 </div>
                 <p
                   class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
@@ -770,27 +774,30 @@
 
               <!-- Job 6 -->
               <div class="mb-8 print:mb-1">
-                <div
-                  class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 print:inline-flex print:justify-start"
-                >
-                  <div>
-                    <h3
-                      class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 flex items-center print:inline print:text-base"
-                    >
-                      <i
-                        data-lucide="laptop"
-                        class="w-4 h-4 text-blue-400 mr-2 print:hidden"
-                      ></i>
-                      Frontend Developer
-                      <span class="text-gray-500 font-medium ml-2 print:ml-1"
+                <div class="mb-2">
+                  <div
+                    class="flex flex-col sm:flex-row sm:justify-between sm:items-start"
+                  >
+                    <div class="job-title-container flex flex-row items-center">
+                      <h3
+                        class="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 print:!text-gray-800 print:inline print:text-base"
+                      >
+                        <i
+                          data-lucide="laptop"
+                          class="w-4 h-4 text-blue-400 mr-1 print:hidden inline-block align-middle"
+                        ></i>
+                        Frontend Developer
+                      </h3>
+                      <span
+                        class="job-company text-gray-400 dark:text-gray-500 font-semibold ml-2 print:ml-1 text-base sm:text-lg print:!text-base"
                         >@ Gatesman + Dave</span
                       >
-                    </h3>
+                    </div>
+                    <span
+                      class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:inline print:ml-2"
+                      >2014 - 2015</span
+                    >
                   </div>
-                  <span
-                    class="text-sm text-gray-400 dark:text-gray-500 print:!text-gray-500 mt-1 sm:mt-0 print:mt-0 print:ml-2"
-                    >2014 - 2015</span
-                  >
                 </div>
                 <p
                   class="text-sm text-gray-600 dark:text-gray-400 print:!text-gray-800 mb-3 italic"
